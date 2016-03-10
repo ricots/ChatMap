@@ -3,4 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="chatMapRed">#DF2000</color>
+    <color name="chatMapLightGrey">#9e9e9e</color>
+    <color name="chatMapDarkGrey">#161616</color>
+    <color name="chatMapWhite">#FFFFFF</color>
+    <color name="chatMapBlack">#000000</color>
+
 </resources>

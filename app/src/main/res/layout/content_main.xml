@@ -1,19 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@color/chatMapWhite"
+    android:orientation="vertical"
     tools:context="im.brianoneill.chatmap.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <TextView
+    <!-- top half of screen-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:paddingTop="10dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+     <TextView
+        android:id="@+id/emailLabelTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</RelativeLayout>
+         android:layout_above="@+id/emailEditText"
+        android:text="@string/email_label"
+        android:textColor="@color/chatMapRed"
+        android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/passwordLabelTextView"
+            android:paddingBottom="20dp"
+            android:layout_marginBottom="10dp"
+            android:hint="@string/email_label"
+            android:textColor="@color/chatMapLightGrey"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/passwordLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/passwordEditText"
+            android:text="@string/password_label"
+            android:textColor="@color/chatMapRed"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btnLayout"
+            android:paddingBottom="20dp"
+            android:layout_marginBottom="10dp"
+            android:hint="@string/password_label"
+            android:textStyle="normal"
+            android:textColor="@color/chatMapLightGrey"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/btnLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true">
+
+
+            <Button
+                android:id="@+id/loginBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:text="@string/loginBtn"
+                android:textSize="20sp"
+                android:textColor="@color/chatMapDarkGrey"
+                android:textAllCaps="false"/>
+
+            <TextView
+                android:id="@+id/splitter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/loginBtn"
+                android:text="@string/splitter"
+                android:textSize="20sp"
+                android:textColor="@color/chatMapDarkGrey"/>
+
+
+            <Button
+                android:id="@+id/createAccBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:text="@string/createAccBtn"
+                android:paddingLeft="20dp"
+                android:textSize="20sp"
+                android:textColor="@color/chatMapDarkGrey"
+                android:textAllCaps="false" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- bottom half of screen-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/chatMapDarkGrey">
+
+        <ImageView
+            android:id="@+id/chatMapLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/chat_map_logo"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

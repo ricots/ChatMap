@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">Chat Map</string>
     <string name="action_settings">Settings</string>
+
+    <!-- login -->
+    <string name="email_label">Email</string>
+    <string name="password_label">Password</string>
+    <string name="loginBtn">login</string>
+    <string name="createAccBtn">create account</string>
+    <string name="splitter">|</string>
+
 </resources>
