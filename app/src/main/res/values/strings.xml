@@ -2,11 +2,19 @@
     <string name="app_name">Chat Map</string>
     <string name="action_settings">Settings</string>
 
+    <!-- global-->
+    <string name="done">Done</string>
+
     <!-- login -->
     <string name="email_label">Email</string>
     <string name="password_label">Password</string>
     <string name="loginBtn">login</string>
     <string name="createAccBtn">create account</string>
     <string name="splitter">|</string>
+
+    <!-- identity creator -->
+    <string name="addPhoto">TAKE YOUR PHOTO OR ADD AN IMAGE</string>
+    <string name="usernameLabel">Username</string>
+
 
 </resources>

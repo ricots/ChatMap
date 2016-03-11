@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="chatMapRed">#DF2000</color>
+    <color name="chatMapRed">#C11700</color>
     <color name="chatMapLightGrey">#9e9e9e</color>
     <color name="chatMapDarkGrey">#161616</color>
     <color name="chatMapWhite">#FFFFFF</color>
