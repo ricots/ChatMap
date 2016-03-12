@@ -16,5 +16,11 @@
     <string name="addPhoto">TAKE YOUR PHOTO OR ADD AN IMAGE</string>
     <string name="usernameLabel">Username</string>
 
+    <!-- chat map list fragment -->
+    <string name="invites">invites</string>
+    <string name="map_signal_im_descrp">image of map with radio signal</string>
+    <string name="create_chat_map_text">CREATE CHAT MAP</string>
+    <string name="map">MAP</string>
+    <string name="timeRemainingLabel">DAYS : HRS : MINS : SEC</string>
 
 </resources>

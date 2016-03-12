@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="30dp">
+
+    <!-- temp hard coded string for design TODO replace dynamically -->
+    <Button
+        android:id="@+id/inviteNumberBtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:text="1"
+        android:textColor="@color/chatMapWhite"
+        android:textSize="14sp"
+        android:background="@drawable/invite_selector"
+        android:layout_alignParentEnd="true"
+        />
+
+    <TextView
+        android:id="@+id/inviteNumberTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/inviteNumberBtn"
+        android:text="@string/invites"
+        android:textSize="14sp"
+        android:textColor="@color/chatMapDarkGrey"
+        android:layout_alignBaseline="@id/inviteNumberBtn"
+        android:layout_marginEnd="10dp"
+        />
+
+    <ImageView
+        android:id="@+id/map_signal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/map_signal"
+        android:layout_below="@id/inviteNumberBtn"
+        android:contentDescription="@string/map_signal_im_descrp"/>
+
+    <TextView
+        android:id="@+id/createChatMapTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create_chat_map_text"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/chatMapDarkGrey"
+        android:textSize="16sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/map_signal"/>
+
+    <ImageButton
+        android:id="@+id/createChatMapBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/create_map_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/createChatMapTextView"/>
+
+    <TextView
+        android:id="@+id/mapLabelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/map"
+        android:textSize="12sp"
+        android:textColor="@color/chatMapDarkGrey"
+        android:layout_below="@id/createChatMapBtn"
+        android:textStyle="bold"
+        android:layout_alignParentLeft="true"/>
+
+    <TextView
+        android:id="@+id/timeRemainingLabelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/timeRemainingLabel"
+        android:textColor="@color/chatMapDarkGrey"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_below="@id/createChatMapBtn"
+        android:layout_alignParentRight="true"
+        android:layout_alignBaseline="@id/mapLabelTextView"/>
+
+    <ListView
+        android:id="@+id/mapListView"
+        android:layout_below="@id/mapLabelTextView"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

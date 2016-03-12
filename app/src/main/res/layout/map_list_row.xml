@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:text="04 : 09 : 55  : 55"
-        android:textColor="@color/chatMapRed"
+        android:textColor="@color/chatMapDarkGrey"
         android:textSize="16sp"
         />
 

@@ -12,99 +12,79 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:paddingLeft="40dp"
-        android:paddingRight="40dp"
         android:background="@color/chatMapWhite"
-        >
-
-        <ImageView
-            android:id="@+id/cheese"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/cheese"
-            />
-
-        <TextView
-            android:id="@+id/addPhoto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/addPhoto"
-            android:textColor="@color/chatMapDarkGrey"
-            android:textSize="16sp"
-            android:layout_alignParentBottom="true"
-            android:paddingBottom="20dp"/>
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp">
 
 
-    </RelativeLayout>
-
-
-    <!-- bottom half of screen-->
-    <RelativeLayout
-        android:id="@+id/bottomSection"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/chatMapDarkGrey">
-
-
-
-        <View
-            android:id="@+id/fakeView"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:background="@color/chatMapWhite"
-            />
-
-        <ImageButton
-            android:id="@+id/cameraBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/camera_btn"
-            android:background="@null"
-            android:layout_centerHorizontal="true"/>
+        <!--<TextView-->
+        <!--android:id="@+id/addPhoto"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/cheese"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:text="@string/addPhoto"-->
+        <!--android:textColor="@color/chatMapDarkGrey"-->
+        <!--android:textSize="16sp" />-->
 
 
         <TextView
             android:id="@+id/username_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
             android:text="@string/usernameLabel"
-            android:layout_below="@id/fakeView"
-            android:layout_marginTop="40dp"
-            android:paddingLeft="40dp"
-            android:paddingRight="40dp"
-            android:textSize="14sp"
-            android:textColor="@color/chatMapRed"/>
+            android:textColor="@color/chatMapRed"
+            android:textSize="14sp" />
+
 
         <EditText
             android:id="@+id/usernameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:paddingLeft="40dp"
-            android:paddingRight="40dp"
             android:layout_below="@id/username_label"
+            android:layout_marginBottom="20dp"
             android:hint="@string/usernameLabel"
-            android:textColorHint="@color/chatMapWhite"
-            android:paddingTop="20dp"
-            android:textSize="20sp"/>
+            android:textColorHint="@color/chatMapLightGrey"
+            android:textSize="20sp" />
+
+
+        <ImageView
+            android:id="@+id/cheese"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/cameraBtn"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/cheese" />
+
+
+        <ImageButton
+            android:id="@+id/cameraBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/userIdDoneBtn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="30dp"
+            android:background="@null"
+            android:src="@drawable/camera_btn" />
+
 
         <Button
             android:id="@+id/userIdDoneBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:background="@null"
             android:text="@string/done"
             android:textAllCaps="false"
             android:textColor="@color/chatMapRed"
-            android:textSize="14sp"
-            android:background="@null"/>
+            android:textSize="14sp" />
 
 
     </RelativeLayout>
+
 
 </LinearLayout>

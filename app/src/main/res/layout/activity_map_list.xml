@@ -9,4 +9,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="im.brianoneill.chatmap.controller.map_list.MapList">
 
+    <!-- container to populate  with the chat map list -->
+
+    <FrameLayout
+        android:id="@+id/chatMapListFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </RelativeLayout>
