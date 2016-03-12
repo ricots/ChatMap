@@ -84,6 +84,7 @@
         android:id="@+id/mapListView"
         android:layout_below="@id/mapLabelTextView"
         android:layout_marginTop="20dp"
+        android:divider="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

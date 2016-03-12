@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".controller.IdCreatorActivity"></activity>
+        <activity android:name=".controller.map_list.MapList"></activity>
     </application>
 
 </manifest>

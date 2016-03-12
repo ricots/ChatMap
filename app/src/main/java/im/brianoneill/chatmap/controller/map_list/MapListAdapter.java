@@ -36,12 +36,12 @@ public class MapListAdapter extends ArrayAdapter {
 
 
         //TODO: this data will be populated by a returned Firebase object
-        //TODO: format time
+        //TODO: handle time
         String mapName = mapList.get(position).getMapName();
         String timeRemaining = mapList.get(position).getTimeToLive();
 
-        mapListNameTextView.setText("@" + mapName);
-        mapListTimeRemaining.setText(timeRemaining);
+        mapListNameTextView.setText(mapName);
+       // mapListTimeRemaining.setText(timeRemaining);
 
 
 

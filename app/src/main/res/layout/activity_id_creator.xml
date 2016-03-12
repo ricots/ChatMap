@@ -53,7 +53,7 @@
             android:id="@+id/cheese"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@id/cameraBtn"
+            android:layout_above="@+id/cameraBtn"
             android:layout_centerHorizontal="true"
             android:src="@drawable/cheese" />
 
@@ -62,7 +62,7 @@
             android:id="@+id/cameraBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@id/userIdDoneBtn"
+            android:layout_above="@+id/userIdDoneBtn"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="30dp"
             android:layout_marginTop="30dp"

@@ -37,6 +37,7 @@ public class MapListFragment extends Fragment {
 
         mapListView = (ListView)chatMapListFragView.findViewById(R.id.mapListView);
         mapListAdapter = new MapListAdapter(getActivity(),fakeList);
+        mapListView.setAdapter(mapListAdapter);
 
         return chatMapListFragView;
     }
