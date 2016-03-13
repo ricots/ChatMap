@@ -34,6 +34,7 @@
             android:layout_above="@+id/passwordLabelTextView"
             android:layout_marginBottom="10dp"
             android:hint="@string/email_label"
+            android:inputType="textEmailAddress"
             android:paddingBottom="20dp"
             android:textColor="@color/chatMapLightGrey"
             android:textSize="20sp" />
@@ -54,6 +55,7 @@
             android:layout_above="@+id/btnLayout"
             android:layout_marginBottom="10dp"
             android:hint="@string/password_label"
+            android:inputType="textPassword"
             android:paddingBottom="20dp"
             android:textColor="@color/chatMapLightGrey"
             android:textSize="20sp"

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="im.brianoneill.chatmap.controller.map_creation.MapLocationActivity">
+
+    <ImageButton
+        android:id="@+id/backToMapCreatorBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back_arrow"
+        android:paddingTop="20dp"
+        android:paddingLeft="20dp"
+        android:contentDescription="@string/back_map_creator_btn"
+        android:background="@null"/>
+
+    <EditText
+        android:id="@+id/locationSearchEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/search_location"
+        android:textSize="14sp"
+        android:textColorHint="@color/chatMapLightGrey"
+        android:layout_toEndOf="@id/backToMapCreatorBtn"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <!-- TODO replace with map view-->
+    <!-- placeholder view for MapView -->
+    <View
+        android:id="@+id/fakeMapView"
+        android:layout_width="match_parent"
+        android:layout_height="225dp"
+        android:layout_below="@id/locationSearchEditText"
+        android:background="@color/chatMapLightGrey"/>
+
+    <ImageButton
+        android:id="@+id/mapPinBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/create_map_btn"
+        android:contentDescription="@string/set_map_pin_btn"
+        android:background="@null"/>
+
+    <EditText
+        android:id="@+id/setMapNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/set_map_name_hint"
+        android:textColorHint="@color/chatMapLightGrey"
+        android:textSize="18sp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/setLocationDoneBtn"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="60dp"
+        android:paddingBottom="20dp"/>
+
+    <Button
+        android:id="@+id/setLocationDoneBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dp"
+        android:background="@null"
+        android:text="@string/done"
+        android:textAllCaps="false"
+        android:textColor="@color/chatMapRed"
+        android:textSize="14sp"/>
+
+
+</RelativeLayout>

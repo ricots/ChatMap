@@ -23,4 +23,22 @@
     <string name="map">MAP</string>
     <string name="timeRemainingLabel">DAYS : HRS : MINS : SEC</string>
 
+    <!-- map creator -->
+    <string name="set_location">SET LOCATION</string>
+    <string name="set_date_time">SET DATE TIME</string>
+    <string name="add_contacts">ADD CONTACTS</string>
+
+    <string name="back_to_list_btn">back to map list</string>
+    <string name="map_view_image">image of a map</string>
+    <string name="done_btn">done button</string>
+    <string name="set_map_btn">create map button</string>
+    <string name="set_date_time_btn">set date and time</string>
+    <string name="add_contacts_btn">add contacts btn</string>
+
+    <!-- map location -->
+    <string name="back_map_creator_btn">back to map creator button</string>
+    <string name="search_location">Search for location</string>
+    <string name="set_map_name_hint">Give your meeting place a name</string>
+    <string name="set_map_pin_btn">Set map pin button</string>
+
 </resources>

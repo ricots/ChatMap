@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    tools:context=".controller.map_creation.MapCreatorActivity">
+
+    <ImageButton
+        android:id="@+id/backToMapListBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back_arrow"
+        android:contentDescription="@string/back_to_list_btn"
+        android:background="@null"/>
+
+    <ImageView
+        android:id="@+id/map_borderless_circle_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/map_borderless_circular_view"
+        android:background="@null"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/map_view_image"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/mapCreatorDoneBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/map_borderless_circle_view"
+        android:layout_centerHorizontal="true"
+        android:text="@string/done"
+        android:textColor="@color/chatMapDarkGrey"
+        android:background="@null"
+        android:contentDescription="@string/done_btn"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        android:layout_marginTop="10dp"/>
+
+    <ImageButton
+        android:id="@+id/setMapLocationBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/mapCreatorDoneBtn"
+        android:contentDescription="@string/set_map_btn"
+        android:src="@drawable/create_map_btn"
+        android:background="@null"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/setLocationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/setMapLocationBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/set_location"
+        android:textSize="14sp"
+        android:textColor="@color/chatMapDarkGrey"/>
+
+    <ImageButton
+        android:id="@+id/setDateTimeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/setLocationTextView"
+        android:src="@drawable/set_date_time_btn"
+        android:contentDescription="@string/set_date_time_btn"
+        android:background="@null"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/setDateTimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/setDateTimeBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/set_date_time"
+        android:textSize="14sp"
+        android:textColor="@color/chatMapDarkGrey"/>
+
+    <ImageButton
+        android:id="@+id/addContactsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/setDateTimeTextView"
+        android:contentDescription="@string/add_contacts_btn"
+        android:src="@drawable/add_contacts_btn"
+        android:background="@null"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/addContactsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addContactsBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/add_contacts"
+        android:textSize="14sp"
+        android:textColor="@color/chatMapDarkGrey"/>
+</RelativeLayout>

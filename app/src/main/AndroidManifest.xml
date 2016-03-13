@@ -18,8 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controller.IdCreatorActivity"></activity>
-        <activity android:name=".controller.map_list.MapList"></activity>
+        <activity android:name=".controller.IdCreatorActivity" />
+        <activity android:name=".controller.map_list.MapList" />
+        <activity android:name=".controller.map_creation.MapCreatorActivity" />
+        <activity android:name=".controller.map_creation.MapLocationActivity"></activity>
     </application>
 
 </manifest>
