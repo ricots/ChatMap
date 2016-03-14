@@ -21,7 +21,8 @@
         <activity android:name=".controller.IdCreatorActivity" />
         <activity android:name=".controller.map_list.MapList" />
         <activity android:name=".controller.map_creation.MapCreatorActivity" />
-        <activity android:name=".controller.map_creation.MapLocationActivity"></activity>
+        <activity android:name=".controller.map_creation.MapLocationActivity" />
+        <activity android:name=".controller.map_creation.AddContactsActivity"></activity>
     </application>
 
 </manifest>

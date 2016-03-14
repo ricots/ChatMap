@@ -41,4 +41,11 @@
     <string name="set_map_name_hint">Give your meeting place a name</string>
     <string name="set_map_pin_btn">Set map pin button</string>
 
+    <!-- add contacts -->
+    <string name="sendMsgBtn">Send messsage to selected contacts button</string>
+    <string name="i">i</string>
+    <string name="newContactsBtn">Add new contacts button</string>
+    <string name="sendInvite">Send Invite</string>
+    <string name="userIconContactsImage">User Icon</string>
+
 </resources>

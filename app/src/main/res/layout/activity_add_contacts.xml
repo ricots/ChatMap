@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    tools:context="im.brianoneill.chatmap.controller.map_creation.AddContactsActivity">
+
+    <ImageButton
+        android:id="@+id/backToMapListBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back_arrow"
+        android:contentDescription="@string/back_map_creator_btn"
+        android:background="@null"/>
+
+
+    <Button
+        android:id="@+id/inviteNumberBtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:text="@string/i"
+        android:textColor="@color/chatMapWhite"
+        android:textSize="14sp"
+        android:background="@drawable/invite_selector"
+        android:layout_alignParentEnd="true"
+        />
+
+    <ListView
+        android:id="@+id/addContactsListView"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp" />
+
+    <ImageButton
+        android:id="@+id/msgBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/sendMsgBtn"
+        android:layout_above="@+id/sendInviteTextView"
+        android:src="@drawable/msg_btn"
+        android:background="@null"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/sendInviteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:text="@string/sendInvite"
+        android:layout_marginBottom="40dp"
+        android:textSize="14sp"
+        android:textColor="@color/chatMapDarkGrey"/>
+
+    <ImageButton
+        android:id="@+id/newContactsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/newContactsBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/new_contacts_btn"
+        android:background="@null"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
