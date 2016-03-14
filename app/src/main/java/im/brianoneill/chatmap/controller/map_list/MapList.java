@@ -1,12 +1,14 @@
 package im.brianoneill.chatmap.controller.map_list;
 
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import im.brianoneill.chatmap.R;
+import im.brianoneill.chatmap.controller.map_creation.MapCreatorActivity;
 
-public class MapList extends AppCompatActivity {
+public class MapList extends AppCompatActivity implements MapListFragment.MapListFragmentInterface {
 
     MapListFragment mapListFragment;
     FragmentManager fragmentManager;
@@ -26,5 +28,12 @@ public class MapList extends AppCompatActivity {
         mapListFragment = new MapListFragment();
         fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().add(R.id.chatMapListFrame, mapListFragment).commit();
+    }
+
+    //implementation of interface method to start new activity
+    @Override
+    public void startMapCreatorActivity() {
+        Intent intent = new Intent(getApplicationContext(), MapCreatorActivity.class);
+        startActivity(intent);
     }
 }

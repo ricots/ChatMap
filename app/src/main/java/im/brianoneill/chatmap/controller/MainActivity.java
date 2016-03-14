@@ -12,10 +12,11 @@ import android.view.MenuItem;
 import android.widget.Button;
 
 import im.brianoneill.chatmap.R;
+import im.brianoneill.chatmap.controller.map_list.MapList;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button loginBtn;
+    Button loginBtn, signUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +26,21 @@ public class MainActivity extends AppCompatActivity {
 //        setSupportActionBar(toolbar);
 
         loginBtn = (Button)findViewById(R.id.loginBtn);
+        signUp = (Button)findViewById(R.id.createAccBtn);
+
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), IdCreatorActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), IdCreatorActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MapList.class);
                 startActivity(intent);
             }
         });

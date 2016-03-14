@@ -1,25 +1,38 @@
 package im.brianoneill.chatmap.model;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.widget.ImageView;
+
+import im.brianoneill.chatmap.R;
 
 /**
  * Created by brianoneill on 14/03/16.
  */
 public class Person {
 
+
     private String username;
-    private BitmapDrawable userIcon;
+    private Bitmap userIcon;
     private String email;
     private String password;
+    Context context;
 
 
     //constructors
-    public Person(String username, BitmapDrawable userIcon){
+    //TODO: add Bitmap userIcon to the constructor
+    public Person(String username, Context context) {
         this.username = username;
-        this.userIcon = userIcon;
+        this.context = context;
+        //code to show how a bitmap might be used
+        //TODO: remove and use constructor
+        this.userIcon = BitmapFactory.decodeResource(context.getResources(), R.drawable.tmp_headshot);
+
     }
 
     public Person(String email, String password){
@@ -39,11 +52,11 @@ public class Person {
         this.username = username;
     }
 
-    public BitmapDrawable getUserIcon() {
+    public Bitmap getUserIcon() {
         return userIcon;
     }
 
-    public void setUserIcon(BitmapDrawable userIcon) {
+    public void setUserIcon(Bitmap userIcon) {
         this.userIcon = userIcon;
     }
 

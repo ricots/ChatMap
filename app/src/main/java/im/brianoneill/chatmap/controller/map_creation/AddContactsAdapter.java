@@ -1,9 +1,11 @@
 package im.brianoneill.chatmap.controller.map_creation;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,22 +36,21 @@ public class AddContactsAdapter extends ArrayAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        if(convertView ==  null){
+        if(convertView ==  null) {
             convertView = inflater.inflate(R.layout.contacts_list_row, parent, false);
 
-            ImageView userIconContactsImageView = (ImageView)convertView.findViewById(R.id.userIconContactsImageView);
-            TextView contactUsernameTextView = (TextView)convertView.findViewById(R.id.contactUsernameTextView);
+            ImageView userIconContactsImageView = (ImageView) convertView.findViewById(R.id.userIconContactsImageView);
+            TextView contactUsernameTextView = (TextView) convertView.findViewById(R.id.contactUsernameTextView);
 
-            BitmapDrawable userIcon = persons.get(position).getUserIcon();
-            String  contactUsername = persons.get(position).getUsername();
+            Bitmap userIcon = persons.get(position).getUserIcon();
+            Drawable d = new BitmapDrawable(context.getResources(), userIcon);
+            String contactUsername = persons.get(position).getUsername();
 
-            userIconContactsImageView.setImageResource(userIcon);
+            userIconContactsImageView.setImageDrawable(d);
+            contactUsernameTextView.setText(contactUsername);
+        }
 
+            return convertView;
 
-
-
-
-
-        return  convertView;
     }
 }

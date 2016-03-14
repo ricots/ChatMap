@@ -47,5 +47,6 @@
     <string name="newContactsBtn">Add new contacts button</string>
     <string name="sendInvite">Send Invite</string>
     <string name="userIconContactsImage">User Icon</string>
+    <string name="addContactInstruction">add from previous contacts below or add new</string>
 
 </resources>

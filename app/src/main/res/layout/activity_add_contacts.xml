@@ -3,36 +3,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="20dp"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp"
     tools:context="im.brianoneill.chatmap.controller.map_creation.AddContactsActivity">
 
     <ImageButton
-        android:id="@+id/backToMapListBtn"
+        android:id="@+id/backToMapCreatorBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/back_arrow"
+        android:paddingTop="20dp"
+        android:paddingLeft="20dp"
         android:contentDescription="@string/back_map_creator_btn"
         android:background="@null"/>
 
 
-    <Button
-        android:id="@+id/inviteNumberBtn"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:text="@string/i"
+    <!--<Button-->
+        <!--android:id="@+id/inviteNumberBtn"-->
+        <!--android:layout_width="30dp"-->
+        <!--android:layout_height="30dp"-->
+        <!--android:text="@string/i"-->
+        <!--android:textColor="@color/chatMapWhite"-->
+        <!--android:textSize="14sp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--android:background="@drawable/invite_selector"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--/>-->
+
+    <TextView
+        android:id="@+id/addContactInstructionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/backToMapCreatorBtn"
+        android:paddingStart="20dp"
+        android:paddingEnd="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:text="@string/addContactInstruction"
+        android:textSize="12sp"
         android:textColor="@color/chatMapWhite"
-        android:textSize="14sp"
-        android:background="@drawable/invite_selector"
+        android:background="@color/chatMapDarkGrey"/>
+
+    <ImageButton
+        android:id="@+id/newContactsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/newContactsBtn"
+        android:layout_below="@id/backToMapCreatorBtn"
         android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/new_contacts_btn"
+        android:background="@null"
         />
 
     <ListView
         android:id="@+id/addContactsListView"
-        android:layout_marginTop="50dp"
+        android:divider="@null"
         android:layout_width="match_parent"
-        android:layout_height="300dp" />
+        android:layout_height="300dp"
+        android:layout_below="@id/addContactInstructionTextView"/>
 
     <ImageButton
         android:id="@+id/msgBtn"
@@ -56,16 +87,6 @@
         android:textSize="14sp"
         android:textColor="@color/chatMapDarkGrey"/>
 
-    <ImageButton
-        android:id="@+id/newContactsBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/newContactsBtn"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:src="@drawable/new_contacts_btn"
-        android:background="@null"
-        android:layout_marginBottom="20dp"
-        android:layout_centerHorizontal="true"/>
+
 
 </RelativeLayout>
