@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="im.brianoneill.chatmap.controller.map_creation.MapInvite">
+
+    <ImageView
+        android:id="@+id/chat_map_ic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/chat_map_ic"
+        android:background="@null"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="10dp"
+        android:contentDescription="@string/chat_map_ic_dscrp"
+        />
+
+    <!-- temp hard coded string to be replace dynamically -->
+    <TextView
+        android:id="@+id/mapNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/chat_map_ic"
+        android:text="Map Name"
+        android:textSize="20sp"
+        android:textColor="@color/chatMapDarkGrey"/>
+
+    <TextView
+        android:id="@+id/messageLabelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mapNameTextView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/message"
+        android:textSize="16sp"
+        android:textColor="@color/chatMapDarkGrey"
+        />
+
+    <View
+        android:id="@+id/lineTop"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/chatMapRed"
+        android:layout_alignTop="@+id/editTextMessage"/>
+
+    <EditText
+        android:id="@+id/editTextMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/messageLabelTextView"
+        android:inputType="textMultiLine"
+        android:lines="6"
+
+        />
+
+    <View
+        android:id="@+id/lineBottom"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/chatMapRed"
+        android:layout_alignBottom="@+id/editTextMessage"/>
+
+    <TextView
+        android:id="@+id/timeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lineBottom"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/time"
+        android:textSize="16sp"
+        android:textColor="@color/chatMapDarkGrey"
+        />
+
+    <TextView
+        android:id="@+id/dateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/timeTextView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="60dp"
+        android:text="@string/date"
+        android:textSize="16sp"
+        android:textColor="@color/chatMapDarkGrey"
+        />
+
+    <Button
+        android:id="@+id/messageDoneBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:text="@string/done"
+        android:textColor="@color/chatMapRed"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:background="@null"
+        />
+</RelativeLayout>

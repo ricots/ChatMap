@@ -22,7 +22,8 @@
         <activity android:name=".controller.map_list.MapList" />
         <activity android:name=".controller.map_creation.MapCreatorActivity" />
         <activity android:name=".controller.map_creation.MapLocationActivity" />
-        <activity android:name=".controller.map_creation.AddContactsActivity"></activity>
+        <activity android:name=".controller.map_creation.AddContactsActivity" />
+        <activity android:name=".controller.map_creation.MapInvite"></activity>
     </application>
 
 </manifest>
