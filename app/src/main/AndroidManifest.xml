@@ -23,7 +23,8 @@
         <activity android:name=".controller.map_creation.MapCreatorActivity" />
         <activity android:name=".controller.map_creation.MapLocationActivity" />
         <activity android:name=".controller.map_creation.AddContactsActivity" />
-        <activity android:name=".controller.map_creation.MapInvite"></activity>
+        <activity android:name=".controller.map_creation.MapInvite" />
+        <activity android:name=".controller.map_chat.MapChatActivity"></activity>
     </application>
 
 </manifest>

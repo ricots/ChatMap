@@ -6,9 +6,13 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -18,7 +22,7 @@ import im.brianoneill.chatmap.model.ChatMap;
 /**
  * Created by brianoneill on 12/03/16.
  */
-public class MapListFragment extends Fragment implements View.OnClickListener {
+public class MapListFragment extends Fragment implements View.OnClickListener, ListView.OnItemClickListener {
 
     ListView mapListView;
     MapListAdapter mapListAdapter;
@@ -52,9 +56,16 @@ public class MapListFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        mapListFragmentInterface = (MapListFragmentInterface)getActivity();
+
+        //set on click listener for the chat map button
         createChatMapButton = (ImageButton)chatMapListFragView.findViewById(R.id.createChatMapBtn);
         createChatMapButton.setOnClickListener(this);
-        mapListFragmentInterface = (MapListFragmentInterface)getActivity();
+
+
+        //set on item click listener for the listView
+        mapListView.setOnItemClickListener(this);
+
     }
 
 
@@ -63,7 +74,14 @@ public class MapListFragment extends Fragment implements View.OnClickListener {
         mapListFragmentInterface.startMapCreatorActivity();
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        String mapListName = fakeList.get(position).getMapName();
+        mapListFragmentInterface.startChatMapActivity(mapListName);
+    }
+
     public interface MapListFragmentInterface{
         void startMapCreatorActivity();
+        void startChatMapActivity(String mapName);
     }
 }

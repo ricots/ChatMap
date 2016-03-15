@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="im.brianoneill.chatmap.controller.map_chat.MapChatActivity">
+
+    <ImageButton
+        android:id="@+id/backToMapListBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back_arrow"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:contentDescription="@string/back_to_list_btn"
+        android:background="@null"/>
+
+
+    <TextView
+        android:id="@+id/chatMapNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Map Name"
+        android:textSize="14sp"
+        android:textColor="@color/chatMapRed"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/chatMapDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="1 January 2017"
+        android:textSize="16sp"
+        android:textColor="@color/chatMapDarkGrey"
+        android:layout_below="@id/chatMapNameTextView"
+        android:layout_centerHorizontal="true"
+        />
+
+    <!-- TODO: replace with map fragment -->
+    <View
+        android:id="@+id/fakeChatMapMapView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/chatMapDateTextView"
+        android:background="@color/chatMapLightGrey"/>
+
+</RelativeLayout>
