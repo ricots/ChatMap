@@ -23,6 +23,8 @@ public class Person {
     private String password;
     Context context;
 
+    private Bitmap soundWave;
+
 
     //constructors
     //TODO: add Bitmap userIcon to the constructor
@@ -30,15 +32,16 @@ public class Person {
         this.username = username;
         this.context = context;
         //code to show how a bitmap might be used
-        //TODO: remove and use constructor
+        //TODO: remove BitmapFactories and use constructor
         this.userIcon = BitmapFactory.decodeResource(context.getResources(), R.drawable.tmp_headshot);
+        this.soundWave = BitmapFactory.decodeResource(context.getResources(), R.drawable.soundwave);
 
     }
 
-    public Person(String email, String password){
-        this.email = email;
-        this.password = password;
-    }
+//    public Person(String email, String password){
+//        this.email = email;
+//        this.password = password;
+//    }
 
 
     //setters and getters for username and icon
@@ -60,7 +63,9 @@ public class Person {
         this.userIcon = userIcon;
     }
 
-
+    public Bitmap getSoundWave(){
+        return soundWave;
+    }
 
 
 }

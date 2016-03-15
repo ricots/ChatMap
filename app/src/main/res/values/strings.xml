@@ -56,6 +56,6 @@
     <string name="date">1 January 2017</string>
 
     <!-- chat map -->
-
+    <string name="mic_button_description">mic button</string>
 
 </resources>

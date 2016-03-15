@@ -47,4 +47,28 @@
         android:layout_below="@id/chatMapDateTextView"
         android:background="@color/chatMapLightGrey"/>
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/chatMapRecyclerView"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/fakeChatMapMapView"/>
+
+    <ImageButton
+        android:id="@+id/micBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fakeChatMapMapView"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/mic"
+        android:background="@null"
+        android:contentDescription="@string/mic_button_description"/>
+
+    <FrameLayout
+        android:id="@+id/chatFragContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/micBtn"/>
+
 </RelativeLayout>
