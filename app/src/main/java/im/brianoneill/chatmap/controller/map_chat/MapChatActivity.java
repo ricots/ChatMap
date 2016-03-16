@@ -74,7 +74,7 @@ public class MapChatActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
+    }//initializeButtons()
 
     private void initializeFragment(){
         chatFragment = new ChatFragment();

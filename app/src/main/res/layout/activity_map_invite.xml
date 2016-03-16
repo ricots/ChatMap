@@ -54,7 +54,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/messageLabelTextView"
+        android:hint="@string/message_hint"
+        android:gravity="top"
+        android:padding="20dp"
         android:inputType="textMultiLine"
+        android:background="@null"
         android:lines="6"
 
         />

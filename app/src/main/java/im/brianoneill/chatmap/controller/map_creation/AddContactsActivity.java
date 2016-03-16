@@ -16,6 +16,7 @@ import im.brianoneill.chatmap.model.Person;
 public class AddContactsActivity extends AppCompatActivity {
 
     ImageButton backToMapCreatorBtn;
+    ImageButton msgBtn;
     Intent intent;
     ListView listView;
     AddContactsAdapter addContactsAdapter;
@@ -24,7 +25,8 @@ public class AddContactsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_contacts);
 
-        backToMapCreatorBtn = (ImageButton)findViewById(R.id.backToMapCreatorBtn);
+        //custom method to set up buttons
+        initializeContactScreenButtons();
         listView = (ListView)findViewById(R.id.addContactsListView);
 
         //tmp code to demo a list of people in the listView
@@ -37,6 +39,14 @@ public class AddContactsActivity extends AppCompatActivity {
         listView.setAdapter(addContactsAdapter);
 
 
+
+    }//onCreate(Bundle savedInstanceState)
+
+    private void initializeContactScreenButtons(){
+
+        backToMapCreatorBtn = (ImageButton)findViewById(R.id.backToMapCreatorBtn);
+        msgBtn = (ImageButton)findViewById(R.id.msgBtn);
+
         backToMapCreatorBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,5 +54,14 @@ public class AddContactsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-}
+
+        msgBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getApplicationContext(), MapInvite.class);
+                startActivity(intent);
+            }
+        });
+    }//initializeContactScreenButtons()
+
+}//EOF

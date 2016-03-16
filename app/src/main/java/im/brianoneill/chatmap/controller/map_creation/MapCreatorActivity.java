@@ -1,10 +1,13 @@
 package im.brianoneill.chatmap.controller.map_creation;
 
+import android.app.DialogFragment;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageButton;
 
 import im.brianoneill.chatmap.R;
@@ -15,6 +18,8 @@ public class MapCreatorActivity extends AppCompatActivity {
     ImageButton backToMapListBtn, setMapLocationBtn, setDateTimeBtn, addContactsBtn;
     Button mapCreatorDoneBtn;
     Intent intent;
+    DialogFragment datePickerFragment;
+    FragmentManager fragmentManager;
 
 
     @Override
@@ -24,6 +29,8 @@ public class MapCreatorActivity extends AppCompatActivity {
 
         initializeMapCreatorButtons();
         initializeButtonListeners();
+
+        fragmentManager = getFragmentManager();
 
     }//onCreate(Bundle savedInstanceState)
 
@@ -60,7 +67,8 @@ public class MapCreatorActivity extends AppCompatActivity {
         setDateTimeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: pop up dialog fragment
+                //pop up dialog fragment
+                showDatePickerDialog(v);
             }
         });
 
@@ -81,6 +89,12 @@ public class MapCreatorActivity extends AppCompatActivity {
         });
 
     }//initializeButtonListeners()
+
+    //When the user clicks setDateTimeBtn, the system calls the following method:
+    public void showDatePickerDialog(View v) {
+        datePickerFragment = new DatePickerFragment();
+        datePickerFragment.show(fragmentManager, "datePicker");
+    }
 
 
 }

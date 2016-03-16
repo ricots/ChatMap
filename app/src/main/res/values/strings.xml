@@ -54,6 +54,7 @@
     <string name="message">Message</string>
     <string name="time">Time: 18:00</string>
     <string name="date">1 January 2017</string>
+    <string name="message_hint">Send a short message with your map invite</string>
 
     <!-- chat map -->
     <string name="mic_button_description">mic button</string>
