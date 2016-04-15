@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/idCreatorLayout"
     tools:context="im.brianoneill.chatmap.controller.IdCreatorActivity">
 
 
@@ -14,19 +15,9 @@
         android:layout_weight="1"
         android:background="@color/chatMapWhite"
         android:paddingLeft="40dp"
-        android:paddingRight="40dp">
-
-
-        <!--<TextView-->
-        <!--android:id="@+id/addPhoto"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@id/cheese"-->
-        <!--android:layout_marginTop="10dp"-->
-        <!--android:text="@string/addPhoto"-->
-        <!--android:textColor="@color/chatMapDarkGrey"-->
-        <!--android:textSize="16sp" />-->
-
+        android:paddingRight="40dp"
+        android:clickable="true"
+        android:focusableInTouchMode="true" >
 
         <TextView
             android:id="@+id/username_label"
@@ -49,14 +40,15 @@
             android:textSize="20sp" />
 
 
-        <ImageView
-            android:id="@+id/cheese"
+        <!-- fragment to be swapped at runtime -->
+        <fragment
+            android:id="@+id/swappableCheeseIcon"
+            class="im.brianoneill.chatmap.controller.CheeseIconFragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/cameraBtn"
+            tools:layout="@layout/cheese_image"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/cheese" />
-
+            android:layout_above="@+id/cameraBtn" />
 
         <ImageButton
             android:id="@+id/cameraBtn"

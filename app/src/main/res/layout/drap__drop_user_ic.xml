@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:layout_centerInParent="true">
+
+    <im.brianoneill.chatmap.controller.DragDropUserIconView
+        android:id="@+id/dragAndDropSurfaceView"
+        android:layout_width="334dp"
+        android:layout_height="334dp"
+        android:layout_above="@+id/cameraBtn"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>
