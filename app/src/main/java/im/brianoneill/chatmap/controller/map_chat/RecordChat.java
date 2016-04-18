@@ -7,11 +7,12 @@ import android.os.Environment;
 import android.util.Log;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 /**
  * Created by brianoneill on 15/04/16.
  */
-public class RecordChat extends AsyncTask<Void, Double, Void> {
+public class RecordChat {
 
     private static String mFileName = null;
     private static final String LOG_TAG = "AudioRecordTest";
@@ -22,18 +23,27 @@ public class RecordChat extends AsyncTask<Void, Double, Void> {
 
     boolean isRecording = false;
 
-    //vars to calculate allowable record time set in startRecording
-
+    //variable to calculate a maximum recording time of five seconds
+    long currentTime;
+    long currentTimePlus5;
+    final long FIVE_SECONDS = 5000;
+    DecimalFormat df;
 
     //my method
     //constructor
     public RecordChat() {
         mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
         mFileName += "/audiorecordtest.3gp";
+        //when the object gets created compute the current time and five seconds from now
+        currentTime = System.currentTimeMillis();
+        currentTimePlus5 = currentTime + FIVE_SECONDS;
+
+        //format time remaining to two decimal places
+        df = new DecimalFormat("#.00");
     }
 
 
-    private void onRecord(boolean start) {
+    public void onRecord(boolean start) {
         if (start) {
             startRecording();
         } else {
@@ -80,8 +90,13 @@ public class RecordChat extends AsyncTask<Void, Double, Void> {
 
         mRecorder.start();
         //for max 5 seconds
-
+        // continually update the current time unit it exceeds five seconds
+        while(currentTime < currentTimePlus5){
+            currentTime = System.currentTimeMillis();
+            Log.e("CURRENTTIME", String.valueOf(currentTime));
+        }
         //move stop recording
+        stopRecording();
 
     }
 
@@ -104,16 +119,11 @@ public class RecordChat extends AsyncTask<Void, Double, Void> {
         }
     }
 
-   /* Async Task methods
-   ---------------------------------------------------------------------------------- */
-
-
-
-    @Override
-    protected Void doInBackground(Void... params) {
-        //execute will call do in background from main thread and start recording
-        //startRecording();
-        return null;
+    //getter for the time left on record
+    public String getRecordTimeLeft(){
+        long recordTimeRemaining = (currentTimePlus5 - currentTime)/1000;
+        Double doubleValueOFTimeRemaining = Double.valueOf(recordTimeRemaining);
+        return df.format(doubleValueOFTimeRemaining);
     }
 
 

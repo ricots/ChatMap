@@ -17,7 +17,7 @@ import android.widget.TextView;
 import im.brianoneill.chatmap.R;
 import im.brianoneill.chatmap.controller.map_list.MapList;
 
-public class MapChatActivity extends AppCompatActivity implements Runnable {
+public class MapChatActivity extends AppCompatActivity{
 
     TextView chatMapNameTextView;
     Bundle extras;
@@ -31,9 +31,7 @@ public class MapChatActivity extends AppCompatActivity implements Runnable {
     ImageView mic_anim_circle;
     TextView record_timer;
 
-    long currentTime;
-    long currentTimePlus5;
-    boolean isRunnable = true;
+//    boolean isRunnable = true;
 
     RecordChat recordChat;
 
@@ -63,8 +61,6 @@ public class MapChatActivity extends AppCompatActivity implements Runnable {
         ChatMapUserIconAdapter chatMapUserIconAdapter = new ChatMapUserIconAdapter(this);
         recyclerView.setAdapter(chatMapUserIconAdapter);
 
-
-
         //artificial population of the adapter
         //TODO: populate from Firebase map instance
         for(int i = 0; i < 9; i++){
@@ -88,7 +84,7 @@ public class MapChatActivity extends AppCompatActivity implements Runnable {
     private void initializeButtons(){
 
         //on touch start mic animation, make countdown visible and start recording
-        //on action up stop recording stop animimation, hide and reset countdown
+        //on action up stop recording stop animation, hide and reset countdown
         micBtn = (ImageButton)findViewById(R.id.micBtn);
         micBtn.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -99,11 +95,18 @@ public class MapChatActivity extends AppCompatActivity implements Runnable {
                     record_timer.setVisibility(View.VISIBLE);
                     a = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.scale);
                     mic_anim_circle.startAnimation(a);
-                    isRunnable = true;
+
+
+                    //prepare the RecordChat object and star recording
+                    recordChat = new RecordChat();
+                    recordChat.onRecord(true);
+                    record_timer.setText(recordChat.getRecordTimeLeft());
 
                 }else if(event.getAction() == MotionEvent.ACTION_UP){
-                    // recordChat.stopRecording();
-                    isRunnable = false;
+                    // stop the recording manually
+                    recordChat.onRecord(false);
+                    recordChat = null;
+
                     record_timer.setVisibility(View.INVISIBLE);
                     mic_anim_circle.clearAnimation();
                 }
@@ -129,17 +132,17 @@ public class MapChatActivity extends AppCompatActivity implements Runnable {
         fragmentManager.beginTransaction().add(R.id.chatFragContainer, chatFragment).commit();
     }//initializeFragment()
 
-    @Override
-    public void run() {
-
-        while (isRunnable) {
-            //recordChat = new RecordChat();
-            currentTime = System.currentTimeMillis();
-            //currentTimePlus5 = currentTime + 5000;
-            record_timer.setText(String.valueOf(currentTime));
-
-        }
-    }// run()
+//    @Override
+//    public void run() {
+//
+//        while (isRunnable) {
+//            //recordChat = new RecordChat();
+//            currentTime = System.currentTimeMillis();
+//            //currentTimePlus5 = currentTime + 5000;
+//            record_timer.setText(String.valueOf(currentTime));
+//
+//        }
+//    }// run()
 
 
 }// EOF
