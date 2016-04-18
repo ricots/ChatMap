@@ -6,40 +6,31 @@ import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
 
 /**
  * Created by brianoneill on 15/04/16.
+ * This code is from:
+ * https://developer.android.com/guide/topics/media/audio-capture.html
  */
 public class RecordChat {
 
     private static String mFileName = null;
     private static final String LOG_TAG = "AudioRecordTest";
-    //private RecordButton mRecordButton = null;
 
     private MediaRecorder mRecorder = null;
     private MediaPlayer mPlayer = null;
 
-    boolean isRecording = false;
+    private final String CHAT_MAP_AUDIO_FILES = "Chat_Map_Audio_Files";
 
-    //variable to calculate a maximum recording time of five seconds
-    long currentTime;
-    long currentTimePlus5;
-    final long FIVE_SECONDS = 5000;
-    DecimalFormat df;
 
     //my method
     //constructor
     public RecordChat() {
         mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
         mFileName += "/audiorecordtest.3gp";
-        //when the object gets created compute the current time and five seconds from now
-        currentTime = System.currentTimeMillis();
-        currentTimePlus5 = currentTime + FIVE_SECONDS;
-
-        //format time remaining to two decimal places
-        df = new DecimalFormat("0.00");
     }
 
 
@@ -90,8 +81,6 @@ public class RecordChat {
 
         mRecorder.start();
 
-//        stopRecording();
-
     }
 
     public void stopRecording() {
@@ -111,13 +100,6 @@ public class RecordChat {
             mPlayer.release();
             mPlayer = null;
         }
-    }
-
-    //getter for the time left on record
-    public String getRecordTimeLeft(){
-        long recordTimeRemaining = (currentTimePlus5 - currentTime)/1000;
-        Double doubleValueOFTimeRemaining = Double.valueOf(recordTimeRemaining);
-        return df.format(doubleValueOFTimeRemaining);
     }
 
 

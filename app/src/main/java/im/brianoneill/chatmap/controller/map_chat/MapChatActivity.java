@@ -34,7 +34,6 @@ public class MapChatActivity extends AppCompatActivity{
     ImageView mic_anim_circle;
     TextView record_timer;
 
-//    boolean isRunnable = true;
 
     RecordChat recordChat;
     CountDownTimer countDownTimer;
@@ -103,9 +102,9 @@ public class MapChatActivity extends AppCompatActivity{
 
                     //prepare the RecordChat object and star recording
 
-//                    recordChat = new RecordChat();
-//                    recordChat.onRecord(true);
-                    final String resetTimerValue = "0";
+                    recordChat = new RecordChat();
+                    recordChat.onRecord(true);
+
                     countDownTimer = new CountDownTimer(6000, 1000) {
 
                         public void onTick(long millisUntilFinished) {
@@ -113,7 +112,10 @@ public class MapChatActivity extends AppCompatActivity{
                         }
 
                         public void onFinish() {
-//                            record_timer.setText(resetTimerValue);
+                            //if time has run out, stop the recording automatically
+                            if (recordChat != null) {
+                                recordChat.onRecord(false);
+                            }
                             record_timer.setVisibility(View.INVISIBLE);
                             mic_anim_circle.clearAnimation();
                         }
@@ -122,8 +124,8 @@ public class MapChatActivity extends AppCompatActivity{
 
                 }else if(event.getAction() == MotionEvent.ACTION_UP){
                     // stop the recording manually
-//                    recordChat.onRecord(false);
-//                    recordChat = null;
+                    recordChat.onRecord(false);
+                    recordChat = null;
 
                     record_timer.setVisibility(View.INVISIBLE);
                     countDownTimer = null;
@@ -151,17 +153,6 @@ public class MapChatActivity extends AppCompatActivity{
         fragmentManager.beginTransaction().add(R.id.chatFragContainer, chatFragment).commit();
     }//initializeFragment()
 
-//    @Override
-//    public void run() {
-//
-//        while (isRunnable) {
-//            //recordChat = new RecordChat();
-//            currentTime = System.currentTimeMillis();
-//            //currentTimePlus5 = currentTime + 5000;
-//            record_timer.setText(String.valueOf(currentTime));
-//
-//        }
-//    }// run()
 
 
 
