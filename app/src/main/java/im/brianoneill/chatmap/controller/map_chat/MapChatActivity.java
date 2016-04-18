@@ -2,6 +2,7 @@ package im.brianoneill.chatmap.controller.map_chat;
 
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,6 +14,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.text.DecimalFormat;
 
 import im.brianoneill.chatmap.R;
 import im.brianoneill.chatmap.controller.map_list.MapList;
@@ -34,6 +37,7 @@ public class MapChatActivity extends AppCompatActivity{
 //    boolean isRunnable = true;
 
     RecordChat recordChat;
+    CountDownTimer countDownTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,7 @@ public class MapChatActivity extends AppCompatActivity{
         recyclerView.setLayoutManager(layoutManager);
         ChatMapUserIconAdapter chatMapUserIconAdapter = new ChatMapUserIconAdapter(this);
         recyclerView.setAdapter(chatMapUserIconAdapter);
+
 
         //artificial population of the adapter
         //TODO: populate from Firebase map instance
@@ -96,18 +101,32 @@ public class MapChatActivity extends AppCompatActivity{
                     a = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.scale);
                     mic_anim_circle.startAnimation(a);
 
-
                     //prepare the RecordChat object and star recording
-                    recordChat = new RecordChat();
-                    recordChat.onRecord(true);
-                    record_timer.setText(recordChat.getRecordTimeLeft());
+
+//                    recordChat = new RecordChat();
+//                    recordChat.onRecord(true);
+                    final String resetTimerValue = "0";
+                    countDownTimer = new CountDownTimer(6000, 1000) {
+
+                        public void onTick(long millisUntilFinished) {
+                            record_timer.setText(String.valueOf(millisUntilFinished / 1000));
+                        }
+
+                        public void onFinish() {
+//                            record_timer.setText(resetTimerValue);
+                            record_timer.setVisibility(View.INVISIBLE);
+                            mic_anim_circle.clearAnimation();
+                        }
+                    }.start();
+
 
                 }else if(event.getAction() == MotionEvent.ACTION_UP){
                     // stop the recording manually
-                    recordChat.onRecord(false);
-                    recordChat = null;
+//                    recordChat.onRecord(false);
+//                    recordChat = null;
 
                     record_timer.setVisibility(View.INVISIBLE);
+                    countDownTimer = null;
                     mic_anim_circle.clearAnimation();
                 }
                 return  false;
@@ -143,6 +162,7 @@ public class MapChatActivity extends AppCompatActivity{
 //
 //        }
 //    }// run()
+
 
 
 }// EOF

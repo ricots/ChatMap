@@ -39,7 +39,7 @@ public class RecordChat {
         currentTimePlus5 = currentTime + FIVE_SECONDS;
 
         //format time remaining to two decimal places
-        df = new DecimalFormat("#.00");
+        df = new DecimalFormat("0.00");
     }
 
 
@@ -89,14 +89,8 @@ public class RecordChat {
         }
 
         mRecorder.start();
-        //for max 5 seconds
-        // continually update the current time unit it exceeds five seconds
-        while(currentTime < currentTimePlus5){
-            currentTime = System.currentTimeMillis();
-            Log.e("CURRENTTIME", String.valueOf(currentTime));
-        }
-        //move stop recording
-        stopRecording();
+
+//        stopRecording();
 
     }
 
