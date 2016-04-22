@@ -4,7 +4,6 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 
 import im.brianoneill.chatmap.R;
 import im.brianoneill.chatmap.controller.map_chat.MapChatActivity;

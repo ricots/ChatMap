@@ -1,32 +1,43 @@
 package im.brianoneill.chatmap.model;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
-import android.widget.ImageView;
+
 
 import im.brianoneill.chatmap.R;
+
 
 /**
  * Created by brianoneill on 14/03/16.
  */
-public class Person {
+public class Person{
 
 
     private String username;
     private Bitmap userIcon;
+    private String encodedAudio;
     private String email;
     private String password;
+
+
     Context context;
 
     private Bitmap soundWave;
 
+    //Required Firebase empty Constructor
+    public Person(){
 
-    //constructors
+    }
+
+    //internal construtor for sign up
+    public Person(String email, String password){
+        this.email = email;
+        this.password = password;
+    }
+
+
+    //internal constructor for the application
     //TODO: add Bitmap userIcon to the constructor
     public Person(String username, Context context) {
         this.username = username;
@@ -37,6 +48,8 @@ public class Person {
         this.soundWave = BitmapFactory.decodeResource(context.getResources(), R.drawable.soundwave);
 
     }
+
+//    public Person(String username, )
 
 //    public Person(String email, String password){
 //        this.email = email;

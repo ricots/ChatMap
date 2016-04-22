@@ -2,13 +2,11 @@ package im.brianoneill.chatmap.controller.map_chat;
 
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
-import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
 
-import java.io.File;
 import java.io.IOException;
-import java.text.DecimalFormat;
+
 
 /**
  * Created by brianoneill on 15/04/16.

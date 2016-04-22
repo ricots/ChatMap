@@ -3,10 +3,13 @@ package im.brianoneill.chatmap.controller.map_chat;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.CountDownTimer;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Base64;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -15,10 +18,15 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.text.DecimalFormat;
+import com.firebase.client.Firebase;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 
 import im.brianoneill.chatmap.R;
 import im.brianoneill.chatmap.controller.map_list.MapList;
+import im.brianoneill.chatmap.utils.Constants;
 
 public class MapChatActivity extends AppCompatActivity{
 
@@ -38,10 +46,15 @@ public class MapChatActivity extends AppCompatActivity{
     RecordChat recordChat;
     CountDownTimer countDownTimer;
 
+
+    private static String mFileName = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_chat);
+
+        Firebase.setAndroidContext(this);
 
         //custom method to initialize buttons
         initializeButtons();
@@ -118,18 +131,25 @@ public class MapChatActivity extends AppCompatActivity{
                             }
                             record_timer.setVisibility(View.INVISIBLE);
                             mic_anim_circle.clearAnimation();
+
+                            sendAudioToFireBase();
                         }
                     }.start();
 
 
                 }else if(event.getAction() == MotionEvent.ACTION_UP){
                     // stop the recording manually
-                    recordChat.onRecord(false);
-                    recordChat = null;
+                    if(recordChat != null){
+                        recordChat.onRecord(false);
+                        recordChat = null;
+                    }
 
                     record_timer.setVisibility(View.INVISIBLE);
                     countDownTimer = null;
                     mic_anim_circle.clearAnimation();
+
+                    sendAudioToFireBase();
+
                 }
                 return  false;
             }
@@ -154,6 +174,81 @@ public class MapChatActivity extends AppCompatActivity{
     }//initializeFragment()
 
 
+    // get the audio file from the device
+    private String getAudioFile(){
+        mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
+        mFileName += "/audiorecordtest.3gp";
+        return mFileName;
+    }
 
+
+    // prepare audio file for Firebase
+    private String encodedAudio(String audioFilePath){
+
+        //http://stackoverflow.com/questions/36307464/android-base64-audio-file-encode-decode/36571318
+
+        byte[] audioByteArray;
+        String encodedAudio = "File not found";
+
+        try{
+            File chatFile = new File(audioFilePath);
+            long fileSize = chatFile.length();
+
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            FileInputStream fis = new FileInputStream(new File(audioFilePath));
+            byte[] buf = new byte[1024];
+            int n;
+            while (-1 != (n = fis.read(buf)))
+                byteArrayOutputStream.write(buf, 0, n);
+            audioByteArray = byteArrayOutputStream.toByteArray();
+
+            // Here goes the Base64 string
+            encodedAudio = Base64.encodeToString(audioByteArray, Base64.DEFAULT);
+
+            return encodedAudio;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        // if try catch doesn't return the file, return "File not found"
+        return encodedAudio;
+    }
+
+
+    private void sendAudioToFireBase(){
+        //send audio to Firebase *****TEST******
+        String encodedAudio = encodedAudio(getAudioFile());
+
+        Firebase ref = new Firebase(Constants.FIREBASE_URL);
+        ref.child("encodedAudio").setValue(encodedAudio);
+        Log.e("TESTSTRING", "TRIGGERED");
+        Log.e("ENCODED", String.valueOf(encodedAudio.length()));
+    }
+
+
+//    try {
+//
+//        FileOutputStream fos = new FileOutputStream(fileName);
+//        fos.write(Base64.decode(base64AudioData.getBytes(), Base64.DEFAULT));
+//        fos.close();
+//
+//        try {
+//
+//            mp = new MediaPlayer();
+//            mp.setDataSource(path);
+//            mp.prepare();
+//            mp.start();
+//
+//        } catch (Exception e) {
+//
+//            DiagnosticHelper.writeException(e);
+//
+//        }
+//
+//    } catch (Exception e) {
+//        e.printStackTrace();
+//    }
+//
+//
+//}
 
 }// EOF

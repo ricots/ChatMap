@@ -20,8 +20,6 @@ import im.brianoneill.chatmap.R;
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
 
-    private DatePicker datePicker;
-
 //    @Nullable
 //    @Override
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

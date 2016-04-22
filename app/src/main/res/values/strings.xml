@@ -12,6 +12,17 @@
     <string name="createAccBtn">create account</string>
     <string name="splitter">|</string>
 
+    <!-- create user dialog strings -->
+    <string name="contacting_firebase">Contacting Firebase</string>
+    <string name="creating_user_account">Creating User Account</string>
+    <string name="email_taken">Email taken</string>
+
+    <!-- login validation strings -->
+    <string name="authenticating">Authenticating</string>
+    <string name="invalid_email">Invalid email</string>
+    <string name="invalid_password">Invalid password</string>
+    <string name="user_does_not_exist">User does not exist</string>
+
     <!-- identity creator -->
     <string name="addPhoto">TAKE YOUR PHOTO OR ADD AN IMAGE</string>
     <string name="usernameLabel">Username</string>
@@ -59,5 +70,8 @@
     <!-- chat map -->
     <string name="mic_button_description">mic button</string>
     <string name="record_timer">5</string>
+    <string name="title_activity_maps">Map</string>
+
+
 
 </resources>

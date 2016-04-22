@@ -1,5 +1,7 @@
 package im.brianoneill.chatmap.model;
 
+import java.util.ArrayList;
+
 /**
  * Created by brianoneill on 12/03/16.
  */
@@ -8,8 +10,10 @@ public class ChatMap {
     private String mapName;
     private String timeToLive;
 
+    private ArrayList<Person> persons;
 
-    //constructor
+
+    //internal app constructor
     public ChatMap(String mapName, String timeToLive) {
         this.mapName = mapName;
         this.timeToLive = timeToLive;

@@ -8,7 +8,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 import im.brianoneill.chatmap.R;
 import im.brianoneill.chatmap.model.Person;
