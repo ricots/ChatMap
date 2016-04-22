@@ -21,6 +21,7 @@ public class MapLocationActivity extends FragmentActivity implements OnMapReadyC
     private GoogleMap mMap;
     Intent intent;
     ImageButton backToMapCreatorBtn;
+    ImageButton mapPinButton;
     Button done;
 
     @Override
@@ -79,5 +80,16 @@ public class MapLocationActivity extends FragmentActivity implements OnMapReadyC
             }
         });
 
+        mapPinButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //send map and data to firebase
+            }
+        });
+
     }//initializeLocationScreenButtons()
+
+
+    //add fake map and data to firebase
+
 }

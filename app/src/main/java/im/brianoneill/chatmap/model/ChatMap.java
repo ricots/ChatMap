@@ -1,6 +1,7 @@
 package im.brianoneill.chatmap.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by brianoneill on 12/03/16.
@@ -10,7 +11,6 @@ public class ChatMap {
     private String mapName;
     private String timeToLive;
 
-    private ArrayList<Person> persons;
 
 
     //internal app constructor
@@ -18,6 +18,14 @@ public class ChatMap {
         this.mapName = mapName;
         this.timeToLive = timeToLive;
     }
+
+
+//    public ChatMap(String mapName, HashMap<String, Object> dateCreated, double latitude, double longitude) {
+//        this.mapName = mapName;
+//        this.dateCreated = dateCreated;
+//        this.latitude = latitude;
+//        this.longitude = longitude;
+//    }
 
 
 

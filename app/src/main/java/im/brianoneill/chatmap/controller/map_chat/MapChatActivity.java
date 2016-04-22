@@ -26,6 +26,7 @@ import java.io.FileInputStream;
 
 import im.brianoneill.chatmap.R;
 import im.brianoneill.chatmap.controller.map_list.MapList;
+import im.brianoneill.chatmap.model.Person;
 import im.brianoneill.chatmap.utils.Constants;
 
 public class MapChatActivity extends AppCompatActivity{
@@ -132,7 +133,7 @@ public class MapChatActivity extends AppCompatActivity{
                             record_timer.setVisibility(View.INVISIBLE);
                             mic_anim_circle.clearAnimation();
 
-                            sendAudioToFireBase();
+//                            sendAudioToFireBase();
                         }
                     }.start();
 
@@ -219,9 +220,12 @@ public class MapChatActivity extends AppCompatActivity{
         String encodedAudio = encodedAudio(getAudioFile());
 
         Firebase ref = new Firebase(Constants.FIREBASE_URL);
-        ref.child("encodedAudio").setValue(encodedAudio);
-        Log.e("TESTSTRING", "TRIGGERED");
-        Log.e("ENCODED", String.valueOf(encodedAudio.length()));
+        //temp values
+        ref.child("maps");
+        Person person = new Person("Brian", encodedAudio);
+
+        ref.child("mymap").push().setValue(person);
+
     }
 
 

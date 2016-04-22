@@ -16,24 +16,14 @@ public class Person{
 
     private String username;
     private Bitmap userIcon;
+    private Bitmap soundWave;
     private String encodedAudio;
-    private String email;
-    private String password;
-
 
     Context context;
-
-    private Bitmap soundWave;
 
     //Required Firebase empty Constructor
     public Person(){
 
-    }
-
-    //internal construtor for sign up
-    public Person(String email, String password){
-        this.email = email;
-        this.password = password;
     }
 
 
@@ -49,16 +39,14 @@ public class Person{
 
     }
 
-//    public Person(String username, )
+    //firebase constructor
+    //TODO: add usericon
+    public Person(String username, String encodedAudio) {
+        this.username = username;
+        this.encodedAudio = encodedAudio;
+    }
 
-//    public Person(String email, String password){
-//        this.email = email;
-//        this.password = password;
-//    }
 
-
-    //setters and getters for username and icon
-    //TODO: find out how to deal with password
     public String getUsername() {
         return username;
     }
@@ -72,6 +60,11 @@ public class Person{
         return userIcon;
     }
 
+    public String getEncodedAudio() {
+        return encodedAudio;
+    }
+
+    //replace default user icon if user has used camera
     public void setUserIcon(Bitmap userIcon) {
         this.userIcon = userIcon;
     }
