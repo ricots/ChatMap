@@ -37,6 +37,8 @@ public class DragDropUserIconView extends SurfaceView implements Runnable, View.
     public float maskX = 0;
     public float maskY = 0;
 
+    boolean firstRun = true;
+
 
 
     Thread thread = null;
@@ -84,11 +86,10 @@ public class DragDropUserIconView extends SurfaceView implements Runnable, View.
     public void run() {
 
 
+
         while(isRunnable){
             // draw to the canvas
 
-            runcount++;
-            Log.e("RUNCOUNT", String.valueOf(runcount));
             //if the surface isn't available go back to the top of the loop
             if(!surfaceHolder.getSurface().isValid()){
                 continue;
@@ -96,40 +97,15 @@ public class DragDropUserIconView extends SurfaceView implements Runnable, View.
 
             result = Bitmap.createBitmap(maskImage.getWidth(), maskImage.getHeight(), Bitmap.Config.ARGB_8888);
 
-            if(result == null){
-                Log.e("RESULT", "NULL");
-            }
-
             //lock the canvas before trying to draw to it
             canvas = surfaceHolder.lockCanvas();
             maskPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
             maskPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
             tempCanvas = new Canvas(result);
             //draw the bitmaps to the canvas
-            canvas.drawARGB(255, 255, 255, 255);
-
-            /*
-                multithreading problem?
-                while loop will run an arbitrary number of times
-                last 10 runs loop count is 46,6,5,12,10,51,25,115,43
-                when the program stops a null pointer exception results
-                from the allocation of tempCanvas
-
-                FATAL EXCEPTION: Thread-1250
-                      java.lang.NullPointerException
-                      at android.graphics.Canvas.<init>(Canvas.java:126)
-                      at im.brianoneill.chatmap.controller.DragDropUserIconView.run(DragDropUserIconView.java:110)
-                      at java.lang.Thread.run(Thread.java:838)
-
-                      stepping through the code in debug mode prints out:
-                      'paused in another thread'
-
-                      Note: result is never null at the point of tempCanvas instantiation
-
-             */
+            canvas.drawARGB(255,255,255,255);
             tempCanvas.drawBitmap(userIconImage, imageX - userIconImage.getWidth()/2,
                     imageY - userIconImage.getHeight()/2, null);
-
             tempCanvas.drawBitmap(maskImage, maskX, maskY, maskPaint);
             maskPaint.setXfermode(null);
             //draw in the centre of the canvas
@@ -138,11 +114,8 @@ public class DragDropUserIconView extends SurfaceView implements Runnable, View.
 
             surfaceHolder.unlockCanvasAndPost(canvas);
 
-            result = null;
-
-
         }
-
+        result = null;
     }// run()
 
 

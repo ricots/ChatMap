@@ -20,9 +20,7 @@ public class UserIconFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.e("ONCREATEVIEW", "CALLED");
         View userIconFragView = inflater.inflate(R.layout.drap__drop_user_ic, container, false);
-        Log.e("INFLATER", "CALLED");
         return userIconFragView;
     }
 }

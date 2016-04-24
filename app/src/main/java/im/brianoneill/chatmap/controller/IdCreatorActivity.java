@@ -54,11 +54,18 @@ public class IdCreatorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //create a dynamic layout using custom method
         setContentView(R.layout.activity_id_creator);
 
         cameraBtn = (ImageButton)findViewById(R.id.cameraBtn);
         userIdDoneBtn = (Button)findViewById(R.id.userIdDoneBtn);
         usernameEditText = (EditText)findViewById(R.id.usernameEditText);
+
+        //set first fragment
+        CheeseIconFragment cheeseIconFragment = new CheeseIconFragment();
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction transaction  = manager.beginTransaction();
+        transaction.add(R.id.fragSwapper, cheeseIconFragment).commit();
 
 
         cameraBtn.setOnClickListener(new View.OnClickListener() {
@@ -165,8 +172,7 @@ public class IdCreatorActivity extends AppCompatActivity {
                 UserIconFragment userIconFragment = new UserIconFragment();
                 FragmentManager manager = getFragmentManager();
                 FragmentTransaction transaction  = manager.beginTransaction();
-                transaction.replace(R.id.idCreatorLayout, userIconFragment);
-                transaction.addToBackStack(null);
+                transaction.replace(R.id.fragSwapper, userIconFragment);
                 transaction.commit();
 
 
@@ -194,6 +200,10 @@ public class IdCreatorActivity extends AppCompatActivity {
         usernameToast.setGravity(Gravity.TOP, 0, 100);
         usernameToast.show();
     }
+
+
+
+
 
 }//EOF
 

@@ -53,22 +53,20 @@ public class MainActivity extends AppCompatActivity {
         userPassword = (EditText)findViewById(R.id.passwordEditText);
 
 
-
-
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String e_target = getEmailEditText();
                 String p_target = getPasswordEditText();
                 //validate email
-                if (e_target != null && android.util.Patterns.EMAIL_ADDRESS.matcher(e_target).matches()){
-                    showFireBaseProgressDialog(getResources().getString(R.string.creating_user_account));
-                    createNewFirebaseUserAccount(e_target, p_target);
-//                Intent intent = new Intent(getApplicationContext(), IdCreatorActivity.class);
-//                startActivity(intent);
-                }else{
-                    userEmail.setError(getResources().getString(R.string.invalid_email));
-                }
+//                if (e_target != null && android.util.Patterns.EMAIL_ADDRESS.matcher(e_target).matches()){
+//                    showFireBaseProgressDialog(getResources().getString(R.string.creating_user_account));
+//                    createNewFirebaseUserAccount(e_target, p_target);
+                Intent intent = new Intent(getApplicationContext(), IdCreatorActivity.class);
+                startActivity(intent);
+//                }else{
+//                    userEmail.setError(getResources().getString(R.string.invalid_email));
+//                }
             }//onClick(View v)
         });
 
@@ -84,9 +82,6 @@ public class MainActivity extends AppCompatActivity {
 
             }//onClick(View v)
         });
-
-
-
     }
 
 

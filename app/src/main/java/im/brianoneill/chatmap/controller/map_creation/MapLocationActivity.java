@@ -63,6 +63,7 @@ public class MapLocationActivity extends FragmentActivity implements OnMapReadyC
 
         backToMapCreatorBtn = (ImageButton)findViewById(R.id.backToMapCreatorBtn);
         done = (Button)findViewById(R.id.setLocationDoneBtn);
+        mapPinButton = (ImageButton)findViewById(R.id.mapPinBtn);
 
         backToMapCreatorBtn.setOnClickListener(new View.OnClickListener() {
             @Override

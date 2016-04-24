@@ -41,14 +41,21 @@
 
 
         <!-- fragment to be swapped at runtime -->
-        <fragment
-            android:id="@+id/swappableCheeseIcon"
-            class="im.brianoneill.chatmap.controller.CheeseIconFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:layout="@layout/cheese_image"
+        <FrameLayout
+            android:id="@+id/fragSwapper"
             android:layout_centerHorizontal="true"
-            android:layout_above="@+id/cameraBtn" />
+            android:layout_above="@+id/cameraBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!--<fragment-->
+            <!--android:id="@+id/swappableCheeseIcon"-->
+            <!--class="im.brianoneill.chatmap.controller.CheeseIconFragment"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--tools:layout="@layout/cheese_image"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_above="@+id/cameraBtn" />-->
 
         <ImageButton
             android:id="@+id/cameraBtn"
