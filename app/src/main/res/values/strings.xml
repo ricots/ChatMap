@@ -72,6 +72,10 @@
     <string name="record_timer">5</string>
     <string name="title_activity_maps">Map</string>
 
-
+   <!--map location activity-->
+    <string name="no_location_detected">No location detected</string>
+    <string name="unable_to_find_location">Unable to find location</string>
+    <string name="confirm_map_name">OK</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

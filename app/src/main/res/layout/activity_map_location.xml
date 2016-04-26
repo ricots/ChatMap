@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/map_location_layout"
     tools:context="im.brianoneill.chatmap.controller.map_creation.MapLocationActivity">
 
     <ImageButton
@@ -63,8 +64,8 @@
         android:textSize="18sp"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/setLocationDoneBtn"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="60dp"
         android:paddingBottom="20dp"/>
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
@@ -19,7 +20,7 @@ import im.brianoneill.chatmap.R;
 /**
  * Created by brianoneill on 15/04/16.
  */
-public class DragDropUserIconView extends SurfaceView implements Runnable, View.OnTouchListener, SurfaceHolder.Callback{
+public class DragDropUserIconView extends SurfaceView implements Runnable, View.OnTouchListener, SurfaceHolder.Callback, IdCreatorActivity.PauseThread{
 
     //userIconImage will be set to the photo take with the camera in IDCreatorActivity.java
     public static Bitmap userIconImage;
@@ -36,10 +37,6 @@ public class DragDropUserIconView extends SurfaceView implements Runnable, View.
 
     public float maskX = 0;
     public float maskY = 0;
-
-    boolean firstRun = true;
-
-
 
     Thread thread = null;
 
@@ -75,10 +72,8 @@ public class DragDropUserIconView extends SurfaceView implements Runnable, View.
 
 
     public void init(){
-
         surfaceHolder = getHolder();
         setOnTouchListener(this);
-
     }
 
 
@@ -89,7 +84,11 @@ public class DragDropUserIconView extends SurfaceView implements Runnable, View.
 
         while(isRunnable){
             // draw to the canvas
-
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             //if the surface isn't available go back to the top of the loop
             if(!surfaceHolder.getSurface().isValid()){
                 continue;
@@ -113,7 +112,6 @@ public class DragDropUserIconView extends SurfaceView implements Runnable, View.
                     this.getHeight()/2 - maskImage.getHeight()/2, new Paint());
 
             surfaceHolder.unlockCanvasAndPost(canvas);
-
         }
         result = null;
     }// run()
@@ -165,8 +163,10 @@ public class DragDropUserIconView extends SurfaceView implements Runnable, View.
             case MotionEvent.ACTION_MOVE:
                 // translate the touch event to give the appearance of the event
                 // being in the centre of image rather than top left corner
-                imageX = motionEvent.getX() - userIconImage.getWidth()/2;
-                imageY = motionEvent.getY() - userIconImage.getHeight()/2;
+                imageX = motionEvent.getX();
+                imageY = motionEvent.getY();
+//                imageX = motionEvent.getX() - userIconImage.getWidth()/2;
+//                imageY = motionEvent.getY() - userIconImage.getHeight()/2;
                 break;
         }
 
@@ -188,5 +188,10 @@ public class DragDropUserIconView extends SurfaceView implements Runnable, View.
         this.pause();
     }
 
+   // this method will be called be the interface in IdCreator
+    @Override
+    public void pauseThread() {
+        this.pause();
+    }
 }
 

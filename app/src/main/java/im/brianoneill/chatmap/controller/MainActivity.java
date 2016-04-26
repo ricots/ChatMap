@@ -59,14 +59,14 @@ public class MainActivity extends AppCompatActivity {
                 String e_target = getEmailEditText();
                 String p_target = getPasswordEditText();
                 //validate email
-//                if (e_target != null && android.util.Patterns.EMAIL_ADDRESS.matcher(e_target).matches()){
-//                    showFireBaseProgressDialog(getResources().getString(R.string.creating_user_account));
-//                    createNewFirebaseUserAccount(e_target, p_target);
+                if (e_target != null && android.util.Patterns.EMAIL_ADDRESS.matcher(e_target).matches()){
+                    showFireBaseProgressDialog(getResources().getString(R.string.creating_user_account));
+                    createNewFirebaseUserAccount(e_target, p_target);
                 Intent intent = new Intent(getApplicationContext(), IdCreatorActivity.class);
                 startActivity(intent);
-//                }else{
-//                    userEmail.setError(getResources().getString(R.string.invalid_email));
-//                }
+                }else{
+                    userEmail.setError(getResources().getString(R.string.invalid_email));
+                }
             }//onClick(View v)
         });
 
@@ -77,8 +77,10 @@ public class MainActivity extends AppCompatActivity {
                 String e_target = getEmailEditText();
                 String p_target = getPasswordEditText();
 
-                showFireBaseProgressDialog(getResources().getString(R.string.authenticating));
-                loginUserToFirebase(e_target, p_target);
+//                showFireBaseProgressDialog(getResources().getString(R.string.authenticating));
+//                loginUserToFirebase(e_target, p_target);
+                Intent intent = new Intent(getApplicationContext(), MapList.class);
+                startActivity(intent);
 
             }//onClick(View v)
         });

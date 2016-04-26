@@ -17,10 +17,13 @@ public class UserIconFragment extends Fragment {
 
 //    fragment to be used when the user takes their photo for the userID set up
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View userIconFragView = inflater.inflate(R.layout.drap__drop_user_ic, container, false);
         return userIconFragView;
     }
+
+
 }

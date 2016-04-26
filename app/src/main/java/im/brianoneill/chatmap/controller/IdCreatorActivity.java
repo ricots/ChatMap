@@ -28,13 +28,13 @@ import java.util.Date;
 import im.brianoneill.chatmap.R;
 import im.brianoneill.chatmap.controller.map_list.MapList;
 
-public class IdCreatorActivity extends AppCompatActivity {
+public class IdCreatorActivity extends AppCompatActivity{
 
     //my application class references
     Button userIdDoneBtn;
     ImageButton cameraBtn;
+    ImageButton initScreenBtn;
     EditText usernameEditText;
-
 
     //android class references
     Toast usernameToast;
@@ -49,7 +49,12 @@ public class IdCreatorActivity extends AppCompatActivity {
     private String timeStamp = "";
 
 
+    //interface to communicate with DragAndDropUserIconView
+    public interface PauseThread{
+        void pauseThread();
+    }
 
+    PauseThread pauseThread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +65,7 @@ public class IdCreatorActivity extends AppCompatActivity {
         cameraBtn = (ImageButton)findViewById(R.id.cameraBtn);
         userIdDoneBtn = (Button)findViewById(R.id.userIdDoneBtn);
         usernameEditText = (EditText)findViewById(R.id.usernameEditText);
+        initScreenBtn = (ImageButton)findViewById(R.id.initScreenBtn);
 
         //set first fragment
         CheeseIconFragment cheeseIconFragment = new CheeseIconFragment();
@@ -110,6 +116,23 @@ public class IdCreatorActivity extends AppCompatActivity {
                 }
             }
         });//userIdDoneBtn.setOnClickListener(new View.OnClickListener()
+
+        initScreenBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                //interface to pause thread in DragDropUserIconView.java
+                pauseThread = new PauseThread() {
+                    @Override
+                    public void pauseThread() {
+                        pauseThread.pauseThread();
+                    }
+                };
+
+                startActivity(intent);
+            }
+        });
 
         usernameEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -176,7 +199,7 @@ public class IdCreatorActivity extends AppCompatActivity {
                 transaction.commit();
 
 
-                Toast.makeText(this, "Full filename:\n"+mPhotoFile.toString(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "Full filename:\n"+mPhotoFile.toString(), Toast.LENGTH_LONG).show();
                 Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
                 mediaScanIntent.setData(mPhotoFileUri);
                 this.sendBroadcast(mediaScanIntent);
@@ -200,7 +223,6 @@ public class IdCreatorActivity extends AppCompatActivity {
         usernameToast.setGravity(Gravity.TOP, 0, 100);
         usernameToast.show();
     }
-
 
 
 
