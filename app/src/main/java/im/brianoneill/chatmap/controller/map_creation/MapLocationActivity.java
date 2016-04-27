@@ -14,9 +14,9 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,6 +38,9 @@ import java.io.IOException;
 import java.util.List;
 
 import im.brianoneill.chatmap.R;
+import im.brianoneill.chatmap.model.RealmMap;
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 
 public class MapLocationActivity extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
@@ -53,6 +56,7 @@ public class MapLocationActivity extends FragmentActivity implements OnMapReadyC
     protected Location lastLocation;
     private double lastLatitude;
     private double lastLongitude;
+    private String mapName;
 
     private String locationSearch;
     private double searchLatitude;
@@ -133,7 +137,7 @@ public class MapLocationActivity extends FragmentActivity implements OnMapReadyC
 
 
                 //set the map name
-                String mapName = setMapNameEditText.getText().toString();
+                mapName = setMapNameEditText.getText().toString();
                 //confirm
                 confirmMapName(mapName);
 
@@ -249,12 +253,28 @@ public class MapLocationActivity extends FragmentActivity implements OnMapReadyC
     }
 
     //show alert dialog confirming map name for user
-    private void confirmMapName(String mapName) {
+    private void confirmMapName(final String mapName) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Chat Map: " + mapName)
+        builder.setMessage("Confirm Map Name: " + mapName)
                 .setPositiveButton(R.string.confirm_map_name, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        // database
+                        RealmMap realmMap = new RealmMap();
+                        realmMap.setRealmMapName(mapName);
+                        realmMap.setRealmLatitude(searchLatitude);
+                        realmMap.setRealmLongitude(searchLongitude);
+                        // Create a RealmConfiguration which is to locate Realm file in package's "files" directory.
+                        RealmConfiguration realmConfig = new RealmConfiguration.Builder(getApplicationContext()).build();
+                        // Get a Realm instance for this thread
+                        Realm realm = Realm.getInstance(realmConfig);
                         // commit to database
+                        realm.beginTransaction();
+                        realm.copyToRealm(realmMap);
+                        realm.commitTransaction();
+
+//                        Log.d("***********", "path: " + realm.getPath());
+
+                        //go back to Map Creator Activity and set text to red color
                         intent = new Intent();
                         intent.putExtra("HAS_LOCATION", true);
                         setResult(SET_LOCATION_REQUEST, intent);

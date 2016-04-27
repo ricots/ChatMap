@@ -120,6 +120,7 @@ public class MapCreatorActivity extends AppCompatActivity {
                     boolean has_location = data.getBooleanExtra("HAS_LOCATION", true);
                     if(has_location){
                         setLocationTextView.setTextColor(getResources().getColor(R.color.chatMapRed));
+
                     }
                 }
 
