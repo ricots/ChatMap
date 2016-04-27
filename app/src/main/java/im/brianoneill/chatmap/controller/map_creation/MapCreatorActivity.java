@@ -112,22 +112,19 @@ public class MapCreatorActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // Check which request we're responding to
 
-        Log.e("TRIGGER", "ACTIVITY RESULT");
+
         if (requestCode == SET_LOCATION_REQUEST) {
             // Make sure the request was successful
-            Log.e("TRIGGER", "SET LOCATION");
-
                 if(data != null){
                     //has location been set?
-                    Log.e("TRIGGER", "HAS DATA");
                     boolean has_location = data.getBooleanExtra("HAS_LOCATION", true);
                     if(has_location){
-                        Log.e("TRIGGER", "HAS LOCATION");
                         setLocationTextView.setTextColor(getResources().getColor(R.color.chatMapRed));
                     }
                 }
 
-        }
+        }//has location block  if (requestCode == SET_LOCATION_REQUEST)
+
     }//onActivityResult()
 
 }//EOF
