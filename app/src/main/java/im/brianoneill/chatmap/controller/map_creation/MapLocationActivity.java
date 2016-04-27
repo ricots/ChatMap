@@ -54,9 +54,12 @@ public class MapLocationActivity extends FragmentActivity implements OnMapReadyC
     private double lastLatitude;
     private double lastLongitude;
 
+    private String locationSearch;
     private double searchLatitude;
     private double searchLongitude;
     private final float ZOOM_LEVEL = 17;
+
+    static final int SET_LOCATION_REQUEST = 1;
 
 
     @Override
@@ -132,10 +135,9 @@ public class MapLocationActivity extends FragmentActivity implements OnMapReadyC
                 //set the map name
                 String mapName = setMapNameEditText.getText().toString();
                 //confirm
+                confirmMapName(mapName);
 
-                //commit to database
-                intent = new Intent(getApplicationContext(), MapCreatorActivity.class);
-                startActivity(intent);
+
             }
         });
 
@@ -216,10 +218,17 @@ public class MapLocationActivity extends FragmentActivity implements OnMapReadyC
         hideSoftKeyboard(view);
 
         //get the searched location
-        String location = locationSearchEditText.getText().toString();
+        locationSearch = locationSearchEditText.getText().toString();
+        if(locationSearch == null){
+            Toast.makeText(getApplicationContext(), getResources().getString(R.string.no_location_detected), Toast.LENGTH_LONG).show();
+            return;
+        }else if (locationSearch.equals("")){
+            Toast.makeText(getApplicationContext(), getResources().getString(R.string.no_location_detected), Toast.LENGTH_LONG).show();
+            return;
+        }
         Geocoder geocoder  = new Geocoder(this);
         //limit to 1 address for now - will return a fuller list when I have more time to implement
-        List<Address> addressList = geocoder.getFromLocationName(location, 1);
+        List<Address> addressList = geocoder.getFromLocationName(locationSearch, 1);
         Address address = addressList.get(0);
 
         //get the latitude and longitude of the returned address
@@ -246,6 +255,10 @@ public class MapLocationActivity extends FragmentActivity implements OnMapReadyC
                 .setPositiveButton(R.string.confirm_map_name, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // commit to database
+                        intent = new Intent();
+                        intent.putExtra("HAS_LOCATION", true);
+                        setResult(SET_LOCATION_REQUEST, intent);
+                        finish();
                     }
                 })
                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
@@ -253,6 +266,8 @@ public class MapLocationActivity extends FragmentActivity implements OnMapReadyC
                         // User cancelled the dialog
                     }
                 });
+        builder.create();
+        builder.show();
     }
 
 }//EOF
