@@ -16,9 +16,10 @@ import android.widget.TextView;
 import im.brianoneill.chatmap.R;
 import im.brianoneill.chatmap.controller.map_list.MapList;
 
-public class MapCreatorActivity extends AppCompatActivity {
+public class MapCreatorActivity extends AppCompatActivity implements DatePickerFragment.DateIsChosen{
 
     static final int SET_LOCATION_REQUEST = 1;
+
 
     ImageButton backToMapListBtn, setMapLocationBtn, setDateTimeBtn, addContactsBtn;
     Button mapCreatorDoneBtn;
@@ -128,4 +129,10 @@ public class MapCreatorActivity extends AppCompatActivity {
 
     }//onActivityResult()
 
+
+    // implementation of DateIsChosen Interface method to set colour of the date textview on completion of DialogFragemnt
+    @Override
+    public void setDateTextViewColour() {
+        setDateTimeTextView.setTextColor(getResources().getColor(R.color.chatMapRed));
+    }
 }//EOF
