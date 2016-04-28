@@ -53,6 +53,7 @@ public class TimePickerFragment extends DialogFragment implements OnTimeSetListe
 
     }
 
+    //set the colour of the setDateTimeTextView on completion of date and time choice - implemented in MapCreatorActivity
     public interface DateAndTimeChosen{
         void setDateTextViewColour();
     }

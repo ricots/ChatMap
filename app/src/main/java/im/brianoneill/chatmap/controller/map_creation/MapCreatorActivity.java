@@ -2,9 +2,11 @@ package im.brianoneill.chatmap.controller.map_creation;
 
 import android.app.DialogFragment;
 import android.app.FragmentManager;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -101,6 +103,7 @@ public class MapCreatorActivity extends AppCompatActivity implements TimePickerF
             @Override
             public void onClick(View v) {
                 //TODO: activate only when map set up complete
+                //display comfirmation dialog to user
             }
         });
 
@@ -142,4 +145,25 @@ public class MapCreatorActivity extends AppCompatActivity implements TimePickerF
     public void setDateTextViewColour() {
         setDateTimeTextView.setTextColor(getResources().getColor(R.color.chatMapRed));
     }
+
+    //user this dialog on Done to commit map to Firebase
+    private void comfirmMapData(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("")
+                .setPositiveButton(R.string.confirm_map_name, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // database
+
+
+                    }
+                })
+                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User cancelled the dialog
+                    }
+                });
+        builder.create();
+        builder.show();
+    }
+
 }//EOF
