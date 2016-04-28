@@ -35,8 +35,8 @@ public class TimePickerFragment extends DialogFragment implements OnTimeSetListe
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 
-            String mapTime =  String.valueOf(hourOfDay) + ":" + String.valueOf(minute);
-        //commit to realm
+        String mapTime =  String.valueOf(hourOfDay) + ":" + String.valueOf(minute);
+        //commit to realm db
         // Create a RealmConfiguration which is to locate Realm file in package's "files" directory.
         RealmConfiguration realmConfig = new RealmConfiguration.Builder(getActivity()).build();
         // Get a Realm instance for this thread
