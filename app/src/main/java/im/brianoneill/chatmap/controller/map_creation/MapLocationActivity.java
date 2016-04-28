@@ -272,8 +272,6 @@ public class MapLocationActivity extends FragmentActivity implements OnMapReadyC
                         realm.copyToRealm(realmMap);
                         realm.commitTransaction();
 
-//                        Log.d("***********", "path: " + realm.getPath());
-
                         //go back to Map Creator Activity and set text to red color
                         intent = new Intent();
                         intent.putExtra("HAS_LOCATION", true);

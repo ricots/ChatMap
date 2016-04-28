@@ -5,14 +5,22 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
 
+import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import im.brianoneill.chatmap.R;
+import im.brianoneill.chatmap.model.RealmMap;
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import io.realm.RealmResults;
 
 /**
  * Created by brianoneill on 16/03/16.
@@ -50,7 +58,26 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
     //implemented method
     @Override
     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-        //TODO send date chosen by user to Firebase
-        //Launch Time Picker
+
+        //format date
+        Date date = new Date(year, monthOfYear, dayOfMonth);
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM d, yy");
+        String mapDate = dateFormatter.format(date);
+
+        //commit to realm
+        // Create a RealmConfiguration which is to locate Realm file in package's "files" directory.
+        RealmConfiguration realmConfig = new RealmConfiguration.Builder(getActivity()).build();
+        // Get a Realm instance for this thread
+        Realm realm = Realm.getInstance(realmConfig);
+        RealmMap realmMap = realm.where(RealmMap.class).findFirst();
+//        test retrieval from database - working :)
+//        Log.d("***********", "name: " + realmMap.getRealmMapName());
+//        Log.d("***********", "lat: " + realmMap.getRealmLatitude());
+//        Log.d("***********", "long: " + realmMap.getRealmLongitude());
+        realm.beginTransaction();
+        realmMap.setRealmDate(mapDate);
+        realm.commitTransaction();
+
+
     }
 }

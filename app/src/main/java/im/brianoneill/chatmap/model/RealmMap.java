@@ -7,11 +7,14 @@ import io.realm.RealmObject;
  */
 public class RealmMap extends RealmObject {
 
+
     private String realmMapName;
     private double realmLatitude;
     private double realmLongitude;
     private String realmDate;
     private String realmTime;
+
+    //setters
 
     public void setRealmMapName(String realmMapName) {
         this.realmMapName = realmMapName;
@@ -31,6 +34,28 @@ public class RealmMap extends RealmObject {
 
     public void setRealmTime(String realmTime) {
         this.realmTime = realmTime;
+    }
+
+
+    //getters
+    public String getRealmMapName() {
+        return realmMapName;
+    }
+
+    public double getRealmLatitude() {
+        return realmLatitude;
+    }
+
+    public double getRealmLongitude() {
+        return realmLongitude;
+    }
+
+    public String getRealmDate() {
+        return realmDate;
+    }
+
+    public String getRealmTime() {
+        return realmTime;
     }
 
 }
