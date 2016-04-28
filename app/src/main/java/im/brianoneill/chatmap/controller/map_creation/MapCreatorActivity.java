@@ -16,7 +16,7 @@ import android.widget.TextView;
 import im.brianoneill.chatmap.R;
 import im.brianoneill.chatmap.controller.map_list.MapList;
 
-public class MapCreatorActivity extends AppCompatActivity implements DatePickerFragment.DateIsChosen{
+public class MapCreatorActivity extends AppCompatActivity implements TimePickerFragment.DateAndTimeChosen{
 
     static final int SET_LOCATION_REQUEST = 1;
 
@@ -25,6 +25,7 @@ public class MapCreatorActivity extends AppCompatActivity implements DatePickerF
     Button mapCreatorDoneBtn;
     Intent intent;
     DialogFragment datePickerFragment;
+    TimePickerFragment timePickerFragment;
     FragmentManager fragmentManager;
 
     TextView setLocationTextView, setDateTimeTextView, addContactsTextView;
@@ -81,7 +82,9 @@ public class MapCreatorActivity extends AppCompatActivity implements DatePickerF
             @Override
             public void onClick(View v) {
                 //pop up dialog fragment
+                showTimePickerDiaglog(v);
                 showDatePickerDialog(v);
+
             }
         });
 
@@ -109,6 +112,10 @@ public class MapCreatorActivity extends AppCompatActivity implements DatePickerF
         datePickerFragment.show(fragmentManager, "datePicker");
     }
 
+    public void showTimePickerDiaglog(View view){
+        timePickerFragment = new TimePickerFragment();
+        timePickerFragment.show(fragmentManager, "timePicker");
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // Check which request we're responding to
@@ -129,8 +136,8 @@ public class MapCreatorActivity extends AppCompatActivity implements DatePickerF
 
     }//onActivityResult()
 
-
-    // implementation of DateIsChosen Interface method to set colour of the date textview on completion of DialogFragemnt
+    // implementation of DateAndTimeChosen Interface method
+    // to set colour of the date textview on completion of both date and time DialogFragemnts
     @Override
     public void setDateTextViewColour() {
         setDateTimeTextView.setTextColor(getResources().getColor(R.color.chatMapRed));

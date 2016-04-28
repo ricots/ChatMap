@@ -78,13 +78,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         realmMap.setRealmDate(mapDate);
         realm.commitTransaction();
 
-        DateIsChosen dateIsChosenActivity = (DateIsChosen)getActivity();
-        dateIsChosenActivity.setDateTextViewColour();
-        this.dismiss();
 
     }
 
-    public interface DateIsChosen{
-        void setDateTextViewColour();
-    }
 }
