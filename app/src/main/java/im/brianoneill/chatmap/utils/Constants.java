@@ -6,5 +6,5 @@ package im.brianoneill.chatmap.utils;
  */
 public class Constants {
 
-    public static final String FIREBASE_URL = "https://in-chat-map.firebaseio.com/";
+    public static final String FIREBASE_URL = "";
 }
